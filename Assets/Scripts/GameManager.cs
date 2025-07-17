@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public float SpawnRate; // Set to 1.5 seconds in Unity
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI GameOverText;
-    public bool IsGameOver = false;
+    public bool IsGameActive = false;
 
     private int score;
     
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private IEnumerator SpawnTarget()
     {
-        while(IsGameOver == false)
+        while(IsGameActive)
         {
             yield return new WaitForSeconds(SpawnRate);
             int index = Random.Range(0, Targets.Count);
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void GameOver()
     {
-        IsGameOver = true;
+        IsGameActive = false;
         GameOverText.gameObject.SetActive(true);
     }
 

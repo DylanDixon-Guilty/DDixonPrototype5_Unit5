@@ -32,7 +32,7 @@ public class Target : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(gameManager.IsGameOver == false)
+        if(gameManager.IsGameActive)
         {
             Instantiate(ExplosionParticle, transform.position, ExplosionParticle.transform.rotation);
             Destroy(gameObject);
