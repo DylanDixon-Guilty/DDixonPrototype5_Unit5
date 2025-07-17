@@ -14,17 +14,13 @@ public class GameManager : MonoBehaviour
     public bool IsGameActive = false;
 
     private int score;
-    
-    private void Start()
-    {
-        StartCoroutine(SpawnTarget());
-        score = 0;
-        UpdateScore(0);
-    }
 
-    private void Update()
+    public void StartGame(int difficulty)
     {
-        
+        SpawnRate /= difficulty;
+        IsGameActive = true;
+        score = 0;
+        StartCoroutine(SpawnTarget());
     }
 
     /// <summary>
